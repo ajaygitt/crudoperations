@@ -1,0 +1,183 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        {{!-- <div class="fadeIn first">
+            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+        </div> --}}
+
+        <!-- Login Form -->
+
+
+        <!-- Remind Passowrd -->
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+    <div class="login-main-text">
+         Login Page</h2>
+        <p>Login here or signup</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+
+            <form class="form1">
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input class="un " type="email" align="center" name="uname" id="uname" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="pass" type="password" align="center" name="pass" id="pass" placeholder="Password">
+                    <span id="invalid" class="text-danger d-flex justify-content-center"
+                        style="display: none !important;">Invalid username or password</span>
+                    <button class="submit" type="submit" id="button" align="center">Sign in</button>
+                    <p class="forgot" align="center"><a href="/signup">Sign Up</p>
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+                $('#button').click((e) => {
+                    e.preventDefault();
+	let email = $('#uname').val()
+	let password = $('#pass').val()
+	$.ajax ({
+                    url: '/login',
+		method: 'post',
+		data: {
+                    email,
+                    password
+                },
+		success: (response) => {
+			if (response.user != true) {
+                    $('#invalid').show()
+                } else {
+                if(response.role === 0){
+                    window.location.href = "admin-home";
+                }else{
+                    window.location.href = "home"
+                }
+			}
+		}
+	})
+})
+
+</script>
+</script>
+
+
+
+
+
+
+
+<style>
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+
+
+    .main-head {
+        height: 150px;
+        background: #FFF;
+
+    }
+
+    .sidenav {
+        height: 100%;
+        background-color: #000;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+
+    .main {
+        padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .login-form {
+            margin-top: 10%;
+        }
+
+        .register-form {
+            margin-top: 10%;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .main {
+            margin-left: 40%;
+        }
+
+        .sidenav {
+            width: 40%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .login-form {
+            margin-top: 80%;
+        }
+
+        .register-form {
+            margin-top: 20%;
+        }
+    }
+
+
+    .login-main-text {
+        margin-top: 20%;
+        padding: 60px;
+        color: #fff;
+    }
+
+    .login-main-text h2 {
+        font-weight: 300;
+    }
+
+    .btn-black {
+        background-color: #000 !important;
+        color: #fff;
+    }
+</style>
